@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type="text"],
+      input[type="button"] {
+        --focus: 2px rgba(39, 94, 254, 0.25);
+        outline: blue;
+        transition: box-shadow 0.2s;
+      }
+      .contain {
+        border: 5px solid black;
+        padding: 5px;
+        margin: 0px;
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #dcf2f1;
+      }
+      a {
+        color: whitesmoke;
+        text-decoration: none;
+      }
+      h1 {
+        margin: 0px;
+      }
+      .grid {
+        margin-top: 0px;
+        display: grid;
+        grid-template-columns: 0.2fr 0.8fr;
+        grid-template-rows: 35px 550px 50px;
+        gap: 10px;
+      }
+      .first {
+        height: 70px;
+        border-radius: 10px 10px 0px 0px;
+        background-color: #0f1035;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+      }
+      .second {
+        border-radius: 0px 0px 10px 10px;
+        background-color: rgb(54, 84, 134);
+        display: flex;
+        gap: 100px;
+        padding-left: 22%;
+        padding-top: 0.5%;
+        grid-column: span 2;
+      }
+      .one,
+      .two,
+      .three,
+      .four {
+        display: inline;
+      }
+      .one,
+      .two,
+      .three {
+        margin-right: 75px;
+      }
+      .fourth {
+        border-radius: 10px;
+        background-color: rgb(127, 199, 217);
+        text-align: center;
+        padding: 5px;
+      }
+      .sixth {
+        border-radius: 10px;
+        background-color: rgb(54, 84, 134);
+        color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: span 2;
+      }
+      .contact,
+      .email {
+        margin-right: 30px;
+      }
+      .input {
+        color: aqua;
+      }
+      .fourth > h1 {
+        text-align: center;
+        margin-bottom: 100px;
+      }
+      .fourth1 {
+        display: flex;
+        justify-content: center;
+      }
+      .budget,
+      .spent,
+      .left {
+        display: inline-block;
+        background-color: antiquewhite;
+        height: 200px;
+        width: 200px;
+        margin-right: 100px;
+        border-radius: 50%;
+      }
+      .a1,
+      .a2,
+      .a3 {
+        margin-right: 95px;
+        margin-top: 40px;
+        font-size: x-large;
+      }
+      .budget {
+        background-image: url(/amount.jpg);
+        background-size: contain;
+        background-position: center;
+        border: 2px solid black;
+      }
+      .spent {
+        background-image: url(/th.jpg);
+        background-size: contain;
+        background-position: center;
+        border: 2px solid black;
+      }
+      .left {
+        background-image: url(/left.jpg);
+        background-size: contain;
+        background-position: center;
+        border: 2px solid black;
+      }
+      .third {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        gap: 10px;
+      }
+      .third1,
+      .third2 {
+        background-color: rgb(127, 199, 217);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.3fr 0.2fr 0.2fr 0.2fr;
+      }
+      .first > a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="first card">
+        <a href="/"><h1>PENNYWISE</h1></a>
+      </div>
+      <div class="grid">
+        <div class="second card">
+          <div class="one"><a href="/">HOME</a></div>
+          <div class="two"><a href="/user/dashboard">DASHBOARD</a></div>
+          <div class="three"><a href="/user/budget">NEW BUDGET</a></div>
+          <div class="four"><a href="/user/login">SIGN IN</a></div>
+        </div>
+        <div class="third">
+          <div class="third1">
+            <h1><u>Create new expense</u></h1>
+            <input
+              type="number"
+              class="expenseCost"
+              name="expenseCost"
+              placeholder="Enter amount of expense"
+            />
+            <input
+              type="text"
+              class="expenseName"
+              name="expenseName"
+              placeholder="Enter the name of expense"
+            />
+            <input type="button" class="submitExpense" value="submit" />
+          </div>
+          <div class="third2">
+            <h1><u>Create new budget</u></h1>
+            <input
+              type="number"
+              class="totalAmount"
+              name="totalAmount"
+              placeholder="Enter amount of budget"
+            />
+            <input
+              type="text"
+              class="budgetName"
+              name="budgetName"
+              placeholder="Enter the name of budget"
+            />
+            <input type="button" class="submitBudget" value="submit" />
+          </div>
+        </div>
+        <div class="fourth">
+          <h1>
+            <u><b>CURRENT BUDGET</b></u>
+          </h1>
+          <div class="fourth1">
+            <div>
+              <div class="budget"></div>
+              <div class="a1"><p>Amount alloted: <%=totalAmount%>$</p></div>
+            </div>
+
+            <div>
+              <div class="spent"></div>
+              <div class="a2">Amount spent: <%=spending%>$</div>
+            </div>
+
+            <div>
+              <div class="left"></div>
+              <div class="a3">Amount left: <%=saving%>$</div>
+            </div>
+          </div>
+        </div>
+        <div class="sixth">
+          <div class="contact"><h4>CONTACT US --------</h4></div>
+          <div class="email">
+            <p><b>Email:</b> info@pennywise.com</p>
+          </div>
+          <div class="phone">
+            <p><b>Phone:</b> 7268934567</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const submitBudget = document.querySelector(".submitBudget");
+      const submitExpense = document.querySelector(".submitExpense");
+      submitBudget.addEventListener("click", (e) => {
+        const totalAmount = document.querySelector(".totalAmount").value;
+        const budgetName = document.querySelector(".budgetName").value;
+        console.log(JSON.stringify({ totalAmount, budgetName }));
+        fetch("/budget/addBudget", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            totalAmount: totalAmount,
+            budgetName: budgetName,
+          }),
+        })
+          .then((response) => {
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.log("Error Occurred While Posting : " + err);
+          });
+      });
+      submitExpense.addEventListener("click", (e) => {
+        const expenseCost = document.querySelector(".expenseCost").value;
+        const expenseName = document.querySelector(".expenseName").value;
+        fetch("/budget/addExpense", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            expenseCost,
+            expenseName,
+          }),
+        })
+           .then((response) => {
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.log("Error Occurred While Adding Expense : " + err);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pennywise</title>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #dcf2f1;
+      }
+      a {
+        color: whitesmoke;
+        text-decoration: none;
+      }
+      h1 {
+        margin: 0px;
+      }
+      .grid-container {
+        margin-top: 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 35px 172px 370px 50px;
+        gap: 10px;
+      }
+      .contain {
+        border: 5px solid black;
+        padding: 5px;
+        margin: 0px;
+      }
+      h1 {
+        margin: 0px;
+      }
+      .second,
+      .third,
+      .sixth {
+        grid-column: span 2;
+      }
+      .first {
+        height: 70px;
+        border-radius: 10px 10px 0px 0px;
+        background-color: #0f1035;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+      }
+      .second {
+        border-radius: 0px 0px 10px 10px;
+        background-color: rgb(54, 84, 134);
+        display: flex;
+        gap: 100px;
+        padding-left: 22%;
+        padding-top: 0.5%;
+      }
+      .one,
+      .two,
+      .three,
+      .four {
+        display: inline;
+      }
+      .one,
+      .two,
+      .three {
+        margin-right: 75px;
+      }
+      .third {
+        border-radius: 10px;
+        background-color: rgb(127, 199, 217);
+        text-align: center;
+        padding: 5px;
+      }
+      .third p {
+        font-size: large;
+      }
+      .fourth {
+        border-radius: 10px;
+        background-color: rgb(127, 199, 217);
+      }
+      .fourth h3 {
+        text-align: center;
+      }
+      button {
+        background-color: rgb(54, 84, 134);
+        color: aliceblue;
+        margin-left: 35%;
+        border-radius: 25%;
+      }
+      .fourth li {
+        font-size: medium;
+      }
+      .fifth {
+        border-radius: 10px;
+        background-color: rgb(127, 199, 217);
+        background-image: url(/40.jpg);
+        background-size: cover;
+        background-position: center;
+        padding: 5px;
+      }
+      .sixth {
+        border-radius: 10px;
+        background-color: rgb(54, 84, 134);
+        color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .contact,
+      .email {
+        margin-right: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="contain">
+      <div class="first card">
+        <a href="/"><h1>PENNYWISE</h1></a>
+      </div>
+      <div class="grid-container">
+        <div class="second card">
+          <div class="one"><a href="/">HOME</a></div>
+          <div class="two"><a href="/user/dashboard">DASHBOARD</a></div>
+          <div class="three"><a href="/user/budget">NEW BUDGET</a></div>
+          <div class="four"><a href="/user/login">SIGN IN</a></div>
+        </div>
+        <div class="third card">
+          <h2>Welcome to PENNYWISE!</h2>
+          <p class="text">
+            🌟 Take control of your finances effortlessly. Start tracking,
+            saving, and achieving your financial goals. Let's make every penny
+            count together! 💸
+          </p>
+          <h2>
+            <b
+              ><i
+                ><u
+                  >"Budgeting is not a sacrifice; it's a strategy for a richer
+                  life."</u
+                ></i
+              ></b
+            >
+          </h2>
+        </div>
+        <div class="fourth card">
+          <h3>FEATURES</h3>
+          <ul>
+            <li>
+              <strong>Intuitive User Interface:</strong><br />
+              Our user-friendly interface ensures a seamless experience,
+              allowing you to effortlessly navigate and manage your budget with
+              ease. Spend less time on finances and more on what matters to you.
+            </li>
+            <br />
+            <li>
+              <strong>Comprehensive Expense Tracking:</strong><br />
+              Keep a close eye on your spending habits with our detailed expense
+              tracking feature. Categorize and analyze your expenses to gain
+              valuable insights into your financial patterns.
+            </li>
+            <br />
+            <li>
+              <strong>Customizable Budget Categories:</strong><br />
+              Tailor your budget to fit your unique lifestyle. With customizable
+              categories, you have the flexibility to prioritize and allocate
+              funds according to your specific financial goals and priorities.
+            </li>
+            <br />
+          </ul>
+          <br />
+          <button>
+            <b><a href="user/login">GET STARTED BY LOGGING IN </a></b>
+          </button>
+        </div>
+        <div class="fifth card"></div>
+        <div class="sixth card">
+          <div class="contact"><h4>CONTACT US --------</h4></div>
+          <div class="email">
+            <p><b>Email:</b> info@pennywise.com</p>
+          </div>
+          <div class="phone">
+            <p><b>Phone:</b> 7268934567</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
