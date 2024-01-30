@@ -57,14 +57,13 @@
       .three {
         margin-right: 75px;
       }
-      .third
-      {
+      .third {
         border-radius: 10px;
         background-color: rgb(127, 199, 217);
         text-align: center;
         padding: 5px;
       }
-      .fourth{
+      .fourth {
         border-radius: 10px;
         background-color: rgb(127, 199, 217);
         text-align: center;
@@ -78,20 +77,46 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 25px);
         gap: 5px;
-        overflow:auto;
-       max-height: 150px;
+        overflow: auto;
+        max-height: 150px;
+        /* For Webkit Browsers (Chrome, Safari) */
+        /* You may need to add similar styles for other browsers like Firefox */
+
+        /* Track */
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background-color: #0f0e1f; /* Change the color of the scrollbar handle */
+          border-radius: 8px; /* Round the corners of the scrollbar handle */
+        }
+
+        /* Handle on hover */
+
+        /* Track */
+
+        /* Handle when it is dragging */
+        &::-webkit-scrollbar-thumb:active {
+          background-color: #333837; /* Change the color when dragging */
+        }
       }
-      
-      .budgets>div {
+
+      .budgets > div {
         background-color: #dcf2f1;
         border-radius: 10px;
-        height: 25px; /* Set a fixed height for all inner divs */
-  /* display: flex;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* margin-bottom: 5px; Set a fixed height for all inner divs */
+        /* display: flex;
   align-items: center;
   justify-content: center; */
       }
-      .budgets>div:hover{
-        cursor:pointer;
+      .budgets > div:hover {
+        cursor: pointer;
       }
       .propic {
         border-radius: 75%;
@@ -103,22 +128,22 @@
         width: 200px;
         background-color: #dcf2f1;
       }
-      .profile{
-        margin:5px -50px 10px 20px;
-        display:block;
+      .profile {
+        margin: 5px -50px 10px 20px;
+        display: block;
       }
-      .picupload{
-        display:flex;
+      .picupload {
+        display: flex;
         justify-content: center;
         gap: 0px;
       }
-      .upload{
+      .upload {
         padding: -20px;
         text-decoration: none;
         height: 20px;
         margin: 5px;
       }
-      .upload::hover{
+      .upload::hover {
         background-color: #333837;
       }
       .sixth {
@@ -147,14 +172,47 @@
         max-height: 510px;
         overflow: auto;
         padding: 10px;
+        /* For Webkit Browsers (Chrome, Safari) */
+        /* You may need to add similar styles for other browsers like Firefox */
+
+        /* Track */
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background-color: #0f0e1f; /* Change the color of the scrollbar handle */
+          border-radius: 8px; /* Round the corners of the scrollbar handle */
+        }
+
+        /* Handle on hover */
+
+        /* Track */
+
+        /* Handle when it is dragging */
+        &::-webkit-scrollbar-thumb:active {
+          background-color: #333837; /* Change the color when dragging */
+        }
         /* margin-bottom: 10px; */
       }
-      .entries > div {
+      /* .entries > div {
         background-color: #dcf2f1;
         color: #0f1035;
         border-radius: 10px;
         height: 50px;
          white-space: pre;
+      } */
+      .entries > div {
+        background-color: #dcf2f1;
+        color: #0f1035;
+        border-radius: 10px;
+        height: 50px;
+        white-space: pre;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* margin-bottom: 5px; Add margin for spacing between entries */
       }
     </style>
   </head>
@@ -173,32 +231,19 @@
         <div class="third">
           <div class="propic"></div>
           <div class="picupload">
-            <input type="file" class="profile" placeholder="Upload"/>
-          <button type="submit" class="upload" onclick="uploadPic()">Upload</button>
+            <input type="file" class="profile" placeholder="Upload" />
+            <button type="submit" class="upload" onclick="uploadPic()">
+              Upload
+            </button>
           </div>
           <!-- <input id="input" type="search" placeholder="search for budget" /> -->
           <div class="budgets">
-            <!-- <div class="b">BUDGET -1</div>
-            <div class="b">BUDGET -2</div>
-            <div class="b">BUDGET -3</div>
-            <div class="b">BUDGET -4</div> -->
+            <!-- <div class="b">BUDGET -1</div> -->
           </div>
         </div>
         <div class="fourth">
           <div class="entries">
-            <!-- <div class="e1">Date: 13/2/23 Expense: 400$ Name: clothes</div>
-            <div class="e2">Date: 15/2/23 Expense: 40$ Name: burger</div>
-            <div class="e3">Date: 23/2/23 Expense: 700$ Name: shoes</div>
-            <div class="e4">Date: 1/3/23 Expense: 4005$ Name: house</div>
-            <div class="e5">Date: 13/3/23 Expense: 4567$ Name: jwellery</div>
-            <div class="e6">Date: 19/4/23 Expense: 400$ Name: scotch</div>
-            <div class="e7">Date: 23/5/23 Expense: 890$ Name: car</div>
-            <div class="e8">Date: 26/6/23 Expense: 90$ Name: fitness</div>
-            <div class="e9">Date: 16/7/23 Expense: 100$ Name: gym fees</div>
-            <div class="e10">Date:19/8/23 Expense: 930$ Name: kuch bhi</div>
-            <div class="e10">Date:19/8/23 Expense: 930$ Name: kuch bhi</div>
-            <div class="e10">Date:19/8/23 Expense: 930$ Name: kuch bhi</div>
-            <div class="e10">Date:19/8/23 Expense: 930$ Name: kuch bhi</div> -->
+            <!-- <div class="e1">Date: 13/2/23 Expense: 400$ Name: clothes</div> -->
           </div>
         </div>
         <div class="sixth">
@@ -213,91 +258,126 @@
       </div>
     </div>
     <script>
-      const budgetExist=JSON.parse('<%-JSON.stringify(budgetExist)%>')
-      const user=JSON.parse('<%-JSON.stringify(user)%>')
+      const budgetExist = JSON.parse("<%-JSON.stringify(budgetExist)%>");
+      // const user = JSON.parse(("<%-JSON.stringify(user)%>"));
+      const user=JSON.parse('<%-JSON.stringify(user)%>');
       console.log(user);
 
-      const displayExpenses=(id,cost,name,date)=>{
-        const newdiv=document.createElement("div");
-        const parent=document.querySelector(".entries");
+      const displayExpenses = (id, cost, name, date) => {
+        const newdiv = document.createElement("div");
+        const parent = document.querySelector(".entries");
 
-        newdiv.id=id;
-        newdiv.innerHTML=`Date : ${date[0]}\t\tTime : ${date[1]}\t\tName : ${name}\t\tCost : ${cost}`;
+        newdiv.id = id;
+        newdiv.innerHTML = `Date : ${date[0]}\t\tTime : ${date[1]}\t\tName : ${name}\t\tCost : ${cost}`;
+
         // newdiv.innerHTML = `Date: ${date[0]}&emsp;Time: ${date[1]}&emsp;Name: ${name}&emsp;Cost: ${cost}`;
         // newdiv.innerHTML = `Date: ${date[0]}&nbsp;Time: ${date[1]}&nbsp;Name: ${name}&nbsp;Cost: ${cost}`;
 
         parent.appendChild(newdiv);
-      }
+      };
 
       const formatDate = (date) => {
         const formattedDate = new Date(date);
         // console.log(typeof(formattedDate));
         return formattedDate.toLocaleString().split(", ");
         // console.log(newDate);
-      }
+      };
 
-      const insertExpense=(n)=>{
-        const ex=user.budgets[n].expenses;
-        if(ex.length==0)
-        {
-           document.querySelector(".entries").innerHTML="<h1><b>No Expense Created</b></h1>"
-        }
-        else
-        {
-          for(let i=ex.length-1;i>=0;i--)
-          {
-              displayExpenses(ex[i]._id,ex[i].expenseCost,ex[i].expenseName,formatDate(ex[i].createdAt));
+      const insertExpense = (n) => {
+        const ex = user.budgets[n].expenses;
+        if (ex.length == 0) {
+          document.querySelector(".entries").innerHTML =
+            "<h1><b>No Expense Created</b></h1>";
+        } else {
+          for (let i = ex.length - 1; i >= 0; i--) {
+            displayExpenses(
+              ex[i]._id,
+              ex[i].expenseCost,
+              ex[i].expenseName,
+              formatDate(ex[i].createdAt)
+            );
           }
         }
-      }
+      };
 
-       const insertBudget=(id,name)=>{
-        const newdiv=document.createElement("div");
-        const parent=document.querySelector(".budgets");
-        newdiv.id=id;
-        newdiv.innerHTML=name;
-        // newdiv.onclick=insertExpense(newdiv.id);
-        newdiv.addEventListener("click",()=>{
-          const entries=document.querySelector(".entries")
-          entries.innerHTML="";
+      //  const insertBudget=(id,name)=>{
+      //   const newdiv=document.createElement("div");
+      //   const parent=document.querySelector(".budgets");
+      //   newdiv.id=id;
+      //   newdiv.innerHTML=name;
+      //   newdiv.className="budget";
+      //   // newdiv.onclick=insertExpense(newdiv.id);
+      //   newdiv.addEventListener("click",()=>{
+      //     newdiv.style.backgroundColor="#bdb714";
+      //     const budget=document.querySelector("div");
+      //     budget.style.backgroundColor="#dcf2f1";
+      //     const entries=document.querySelector(".entries")
+      //     entries.innerHTML="";
+      //     insertExpense(newdiv.id);
+      //   })
+      //   parent.appendChild(newdiv);
+      // }
+      const insertBudget = (id, name) => {
+        const newdiv = document.createElement("div");
+        const parent = document.querySelector(".budgets");
+        newdiv.id = id;
+        newdiv.innerHTML = name;
+        newdiv.className = "budget";
+
+        newdiv.addEventListener("click", () => {
+          // Remove yellow background from any previously selected budget
+          const selectedBudget = document.querySelector(".budget[selected]");
+          if (selectedBudget) {
+            selectedBudget.style.backgroundColor = "#dcf2f1";
+            selectedBudget.style.color = "#0f1035";
+            selectedBudget.removeAttribute("selected");
+          }
+
+          // Set yellow background for the newly clicked budget
+          newdiv.style.backgroundColor = "#0f1035";
+          newdiv.style.color = "#dcf2f1";
+          newdiv.setAttribute("selected", "true");
+
+          const entries = document.querySelector(".entries");
+          entries.innerHTML = "";
           insertExpense(newdiv.id);
-        })
+        });
+
         parent.appendChild(newdiv);
-      }
-      if(user.budgets.length==0)
-      {
-          document.querySelector(".budgets").innerHTML="<h1><b>No Budget Created</b></h1>"
-          document.querySelector(".entries").innerHTML="<h1><b>No Expense Created</b></h1>"
-      }
-      else
-      {
-        for(let i=user.budgets.length-1;i>=0;i--)
-        {
-          insertBudget(i,user.budgets[i].budgetName);
+      };
+
+      if (user.budgets.length == 0) {
+        document.querySelector(".budgets").innerHTML =
+          "<h1><b>No Budget Created</b></h1>";
+        document.querySelector(".entries").innerHTML =
+          "<h1><b>No Expense Created</b></h1>";
+      } else {
+        insertExpense(user.budgets.length - 1);
+        for (let i = user.budgets.length - 1; i >= 0; i--) {
+          insertBudget(i, user.budgets[i].budgetName);
         }
       }
 
-      const uploadPic=()=>{
-        const profile=document.querySelector(".profile");
-        if(profile.files[0])
-        {
-            const formdata=new FormData();
-            const profileImage=profile.files[0];
-            formdata.append('profileImage',profileImage);
-            // console.log(profileImage);
-            fetch('/user/profileImage',{
-              method:'POST',
-              body:formdata,
-            })
-            .then(response=>{
-              response.json()
+      const uploadPic = () => {
+        const profile = document.querySelector(".profile");
+        if (profile.files[0]) {
+          const formdata = new FormData();
+          const profileImage = profile.files[0];
+          formdata.append("profileImage", profileImage);
+          // console.log(profileImage);
+          fetch("/user/profileImage", {
+            method: "POST",
+            body: formdata,
+          })
+            .then((response) => {
+              response.json();
               window.location.reload();
             })
-            .catch(err=>{
+            .catch((err) => {
               console.log(err);
-            })
+            });
         }
-      }
+      };
     </script>
   </body>
 </html>
