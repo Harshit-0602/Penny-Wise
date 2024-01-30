@@ -88,7 +88,7 @@ const login = asyncHandler(async (req, res) => {
     .status(200)
     .cookie("accessToken", accessToken, option)
     .cookie("refreshToken", refreshToken, option)
-    .redirect("/user/dashboard");
+    .redirect("/user/budget");
     // .json(new apiRes(200, loggedInUser, "User Logged In Successfully"));
 });
 
@@ -108,7 +108,8 @@ const logout = asyncHandler(async (req, res) => {
     .status(200)
     .clearCookie("accessToken", option)
     .clearCookie("refreshToken", option)
-    .json(new apiRes(200, user, "User Logged Out Successfully....."));
+    .redirect("/");
+    // .json(new apiRes(200, user, "User Logged Out Successfully....."));
 });
 
 const RegenerateAccessToken = asyncHandler(async (req, res) => {

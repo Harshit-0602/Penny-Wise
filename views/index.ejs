@@ -122,7 +122,7 @@
           <div class="one"><a href="/">HOME</a></div>
           <div class="two"><a href="/user/dashboard">DASHBOARD</a></div>
           <div class="three"><a href="/user/budget">NEW BUDGET</a></div>
-          <div class="four"><a href="/user/login">SIGN IN</a></div>
+          <div class="four"><a class="status" href="/user/login">SIGN IN</a></div>
         </div>
         <div class="third card">
           <h2>Welcome to PENNYWISE!</h2>
@@ -169,7 +169,7 @@
           </ul>
           <br />
           <button>
-            <b><a href="user/login">GET STARTED BY LOGGING IN </a></b>
+            <b><a class="start" href="/user/login">GET STARTED BY LOGGING IN </a></b>
           </button>
         </div>
         <div class="fifth card"></div>
@@ -184,5 +184,25 @@
         </div>
       </div>
     </div>
+    <script>
+      const checkUser=JSON.parse('<%-JSON.stringify(userLoggedIn)%>');
+      if(checkUser==true)
+      {
+        const status=document.querySelector(".status");
+        status.innerHTML="SIGN OUT";
+        status.href="/user/logout";
+        const start=document.querySelector(".start");
+        start.innerHTML="START ADDING BUDGET";
+        start.href="/user/budget" ;    
+      }
+      else{
+        const status=document.querySelector(".status");
+        status.innerHTML="SIGN IN";
+        status.href="/user/login";
+        const start=document.querySelector(".start");
+        start.innerHTML="GET STARTED BY LOGGING IN ";
+        start.href="/user/login";
+      }
+    </script>
   </body>
 </html>

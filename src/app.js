@@ -15,8 +15,13 @@ app.use("/user", userRouter);
 import budgetRouter from "./routes/budget.routes.js";
 
 app.use("/budget", budgetRouter);
-app.get("/" ,(req, res) => {
-  res.render("index.ejs");
+app.get("/", (req, res) => {
+  let userLoggedIn = false;
+  if (req.cookies.refreshToken)
+  {
+    userLoggedIn = true;
+  }
+  res.render("index.ejs",{userLoggedIn});
 });
 
 

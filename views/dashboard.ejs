@@ -90,13 +90,16 @@
   align-items: center;
   justify-content: center; */
       }
+      .budgets>div:hover{
+        cursor:pointer;
+      }
       .propic {
         border-radius: 75%;
         background-image: url("data:image/png;base64, <%=profileImage %>");
         background-size: contain;
         background-position: center;
         margin: 30px 50px 20px 80px;
-        height: 200px;
+        height: 225px;
         width: 200px;
         background-color: #dcf2f1;
       }
@@ -128,7 +131,6 @@
         grid-column: span 2;
         /* margin-top: 10px; */
       }
-
       .contact,
       .email {
         margin-right: 30px;
@@ -140,7 +142,7 @@
       .entries {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
         gap: 5px;
         max-height: 510px;
         overflow: auto;
@@ -166,7 +168,7 @@
           <div class="one"><a href="/">HOME</a></div>
           <div class="two"><a href="/user/dashboard">DASHBOARD</a></div>
           <div class="three"><a href="/user/budget">NEW BUDGET</a></div>
-          <div class="four"><a href="/user/login">SIGN IN</a></div>
+          <div class="four"><a href="/user/logout">SIGN OUT</a></div>
         </div>
         <div class="third">
           <div class="propic"></div>
@@ -174,7 +176,7 @@
             <input type="file" class="profile" placeholder="Upload"/>
           <button type="submit" class="upload" onclick="uploadPic()">Upload</button>
           </div>
-          <input id="input" type="text" placeholder="search for budget" />
+          <!-- <input id="input" type="search" placeholder="search for budget" /> -->
           <div class="budgets">
             <!-- <div class="b">BUDGET -1</div>
             <div class="b">BUDGET -2</div>
@@ -236,9 +238,16 @@
 
       const insertExpense=(n)=>{
         const ex=user.budgets[n].expenses;
-        for(let i=ex.length-1;i>=0;i--)
+        if(ex.length==0)
         {
-            displayExpenses(ex[i]._id,ex[i].expenseCost,ex[i].expenseName,formatDate(ex[i].createdAt));
+           document.querySelector(".entries").innerHTML="<h1><b>No Expense Created</b></h1>"
+        }
+        else
+        {
+          for(let i=ex.length-1;i>=0;i--)
+          {
+              displayExpenses(ex[i]._id,ex[i].expenseCost,ex[i].expenseName,formatDate(ex[i].createdAt));
+          }
         }
       }
 
@@ -255,10 +264,17 @@
         })
         parent.appendChild(newdiv);
       }
-
-      for(let i=user.budgets.length-1;i>=0;i--)
+      if(user.budgets.length==0)
       {
-        insertBudget(i,user.budgets[i].budgetName);
+          document.querySelector(".budgets").innerHTML="<h1><b>No Budget Created</b></h1>"
+          document.querySelector(".entries").innerHTML="<h1><b>No Expense Created</b></h1>"
+      }
+      else
+      {
+        for(let i=user.budgets.length-1;i>=0;i--)
+        {
+          insertBudget(i,user.budgets[i].budgetName);
+        }
       }
 
       const uploadPic=()=>{
