@@ -1,6 +1,6 @@
 
 const formatName = (name) => {
-  let arr = name.trim().toLowerCase().split(' ');
+  let arr = name.slice(0,16).trim().toLowerCase().split(' ');
   // console.log(arr);
   // console.log(s.trim().split(' '));
   for (let i = 0; i < arr.length; i++) {

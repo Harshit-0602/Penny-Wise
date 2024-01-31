@@ -238,7 +238,7 @@
           </div>
           <!-- <input id="input" type="search" placeholder="search for budget" /> -->
           <div class="budgets">
-            <!-- <div class="b">BUDGET -1</div> -->
+            <!-- <div class="b">aaaaaaaaaaaaaaaaaaaa</div> -->
           </div>
         </div>
         <div class="fourth">
@@ -317,11 +317,11 @@
       //   })
       //   parent.appendChild(newdiv);
       // }
-      const insertBudget = (id, name) => {
+      const insertBudget = (id, name,date) => {
         const newdiv = document.createElement("div");
         const parent = document.querySelector(".budgets");
         newdiv.id = id;
-        newdiv.innerHTML = name;
+        newdiv.innerHTML = name+" : "+date[0];
         newdiv.className = "budget";
 
         newdiv.addEventListener("click", () => {
@@ -354,7 +354,7 @@
       } else {
         insertExpense(user.budgets.length - 1);
         for (let i = user.budgets.length - 1; i >= 0; i--) {
-          insertBudget(i, user.budgets[i].budgetName);
+          insertBudget(i, user.budgets[i].budgetName,formatDate(user.budgets[i].createdAt));
         }
       }
 
